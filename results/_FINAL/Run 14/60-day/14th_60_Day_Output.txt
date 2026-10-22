@@ -1,0 +1,477 @@
+## 60 DAY WINDOW
+## WITH SCHEDULER & 10x RUN (RUN 12 SETTING)
+
+--------------------------------------------------------
+########################################################
+--------------------------------------------------------
+
+dataset = final_df.csv
+
+batch_size = 16
+    num_epochs = 200
+    learning_rate = 0.000001
+    patience = 15
+    pos_weight = torch.tensor(10)
+    l2_reg = 0.001
+    l1_reg = 0
+    threshold = 0.35
+
+    scheduler = CosineAnnealingWarmUpRestarts(
+            optimizer,
+            T_0=10,
+            T_mult=1,
+            eta_max=0.000001,
+            T_up=2,
+            gamma=0.5
+        )
+
+--------------------------------------------------------
+########################################################
+--------------------------------------------------------
+---------				----------------
+#########		OUTPUT		################
+---------				----------------
+--------------------------------------------------------
+########################################################
+--------------------------------------------------------
+
+
+
+SEED 100:
+
+Epoch [1/200] - Train Loss: 1.6155 | Valid Loss: 1.0149 | Valid Acc: 14.36%
+Epoch [2/200] - Train Loss: 1.6213 | Valid Loss: 0.8777 | Valid Acc: 14.92%
+Epoch [3/200] - Train Loss: 1.5051 | Valid Loss: 0.9753 | Valid Acc: 16.57%
+Epoch [4/200] - Train Loss: 1.4646 | Valid Loss: 0.8923 | Valid Acc: 25.97%
+Epoch [5/200] - Train Loss: 1.2186 | Valid Loss: 0.5798 | Valid Acc: 59.12%
+Epoch [6/200] - Train Loss: 1.1488 | Valid Loss: 0.5163 | Valid Acc: 66.30%
+Epoch [7/200] - Train Loss: 1.0314 | Valid Loss: 0.3953 | Valid Acc: 76.24%
+Epoch [8/200] - Train Loss: 1.0232 | Valid Loss: 0.4354 | Valid Acc: 72.93%
+Epoch [9/200] - Train Loss: 0.9150 | Valid Loss: 0.4432 | Valid Acc: 73.48%
+Epoch [10/200] - Train Loss: 1.0008 | Valid Loss: 0.4669 | Valid Acc: 73.48%
+Epoch [11/200] - Train Loss: 1.0878 | Valid Loss: 0.3549 | Valid Acc: 83.43%
+Epoch [12/200] - Train Loss: 1.0628 | Valid Loss: 0.3755 | Valid Acc: 87.29%
+Epoch [13/200] - Train Loss: 0.9026 | Valid Loss: 0.4729 | Valid Acc: 87.29%
+Epoch [14/200] - Train Loss: 1.4233 | Valid Loss: 0.4120 | Valid Acc: 88.40%
+Epoch [15/200] - Train Loss: 1.6248 | Valid Loss: 0.4799 | Valid Acc: 81.77%
+Epoch [16/200] - Train Loss: 0.9082 | Valid Loss: 0.4755 | Valid Acc: 85.64%
+Epoch [17/200] - Train Loss: 1.1058 | Valid Loss: 0.5157 | Valid Acc: 87.29%
+Epoch [18/200] - Train Loss: 1.0600 | Valid Loss: 0.6021 | Valid Acc: 84.53%
+Epoch [19/200] - Train Loss: 0.7456 | Valid Loss: 0.6253 | Valid Acc: 86.19%
+Epoch [20/200] - Train Loss: 0.8549 | Valid Loss: 0.6558 | Valid Acc: 85.64%
+Epoch [21/200] - Train Loss: 1.8620 | Valid Loss: 0.6740 | Valid Acc: 88.95%
+Epoch [22/200] - Train Loss: 1.0324 | Valid Loss: 0.6813 | Valid Acc: 88.95%
+Epoch [23/200] - Train Loss: 0.7159 | Valid Loss: 0.7078 | Valid Acc: 86.74%
+Epoch [24/200] - Train Loss: 0.8376 | Valid Loss: 0.8098 | Valid Acc: 88.40%
+Epoch [25/200] - Train Loss: 0.6131 | Valid Loss: 0.7767 | Valid Acc: 88.95%
+Epoch [26/200] - Train Loss: 0.4894 | Valid Loss: 0.7468 | Valid Acc: 87.29%
+Early Stopping at Epoch 26
+Loaded best model with valid loss: 0.3549
+Total Training Time: 326.43 seconds
+Maximum GPU memory allocated: 3358.65 MB
+Inference Time: 2.55 seconds
+
+Classification Report:
+              precision    recall  f1-score     support
+0.0            0.902439  0.961039  0.930818  154.000000
+1.0            0.647059  0.407407  0.500000   27.000000
+accuracy       0.878453  0.878453  0.878453    0.878453
+macro avg      0.774749  0.684223  0.715409  181.000000
+weighted avg   0.864344  0.878453  0.866552  181.000000
+
+----------------------------------------------------------------------------
+
+SEED 200:
+
+Epoch [1/200] - Train Loss: 1.5652 | Valid Loss: 0.7338 | Valid Acc: 14.36%
+Epoch [2/200] - Train Loss: 1.4689 | Valid Loss: 0.6445 | Valid Acc: 22.10%
+Epoch [3/200] - Train Loss: 1.3261 | Valid Loss: 0.5337 | Valid Acc: 58.56%
+Epoch [4/200] - Train Loss: 1.2175 | Valid Loss: 0.5113 | Valid Acc: 69.06%
+Epoch [5/200] - Train Loss: 1.1438 | Valid Loss: 0.4182 | Valid Acc: 77.90%
+Epoch [6/200] - Train Loss: 1.0501 | Valid Loss: 0.3951 | Valid Acc: 80.66%
+Epoch [7/200] - Train Loss: 1.0501 | Valid Loss: 0.4104 | Valid Acc: 80.11%
+Epoch [8/200] - Train Loss: 0.9458 | Valid Loss: 0.4519 | Valid Acc: 82.87%
+Epoch [9/200] - Train Loss: 1.0282 | Valid Loss: 0.5021 | Valid Acc: 83.98%
+Epoch [10/200] - Train Loss: 0.8231 | Valid Loss: 0.5435 | Valid Acc: 84.53%
+Epoch [11/200] - Train Loss: 0.9198 | Valid Loss: 0.6751 | Valid Acc: 83.98%
+Epoch [12/200] - Train Loss: 0.9129 | Valid Loss: 0.8078 | Valid Acc: 83.98%
+Epoch [13/200] - Train Loss: 1.1648 | Valid Loss: 0.9120 | Valid Acc: 83.43%
+Epoch [14/200] - Train Loss: 0.8275 | Valid Loss: 0.9445 | Valid Acc: 85.08%
+Epoch [15/200] - Train Loss: 0.8415 | Valid Loss: 0.9892 | Valid Acc: 83.98%
+Epoch [16/200] - Train Loss: 0.8074 | Valid Loss: 1.0260 | Valid Acc: 85.08%
+Epoch [17/200] - Train Loss: 0.6970 | Valid Loss: 1.0904 | Valid Acc: 83.98%
+Epoch [18/200] - Train Loss: 0.7355 | Valid Loss: 1.1055 | Valid Acc: 83.98%
+Epoch [19/200] - Train Loss: 0.5968 | Valid Loss: 1.1296 | Valid Acc: 84.53%
+Epoch [20/200] - Train Loss: 0.5947 | Valid Loss: 1.1266 | Valid Acc: 83.98%
+Epoch [21/200] - Train Loss: 0.5677 | Valid Loss: 1.1704 | Valid Acc: 85.08%
+Early Stopping at Epoch 21
+Loaded best model with valid loss: 0.3951
+Total Training Time: 267.11 seconds
+Maximum GPU memory allocated: 3687.87 MB
+Inference Time: 2.57 seconds
+
+Classification Report:
+              precision    recall  f1-score     support
+0.0            0.865169  1.000000  0.927711  154.000000
+1.0            1.000000  0.111111  0.200000   27.000000
+accuracy       0.867403  0.867403  0.867403    0.867403
+macro avg      0.932584  0.555556  0.563855  181.000000
+weighted avg   0.885282  0.867403  0.819157  181.000000
+
+----------------------------------------------------------------------------
+
+SEED 300:
+
+Epoch [1/200] - Train Loss: 1.6504 | Valid Loss: 0.7178 | Valid Acc: 14.36%
+Epoch [2/200] - Train Loss: 1.5828 | Valid Loss: 0.8607 | Valid Acc: 14.36%
+Epoch [3/200] - Train Loss: 1.5527 | Valid Loss: 0.7791 | Valid Acc: 14.36%
+Epoch [4/200] - Train Loss: 1.4217 | Valid Loss: 0.7916 | Valid Acc: 14.92%
+Epoch [5/200] - Train Loss: 1.3072 | Valid Loss: 0.6766 | Valid Acc: 41.99%
+Epoch [6/200] - Train Loss: 1.1605 | Valid Loss: 0.6681 | Valid Acc: 50.83%
+Epoch [7/200] - Train Loss: 1.0241 | Valid Loss: 0.6291 | Valid Acc: 62.98%
+Epoch [8/200] - Train Loss: 0.8697 | Valid Loss: 0.5429 | Valid Acc: 70.17%
+Epoch [9/200] - Train Loss: 0.7547 | Valid Loss: 0.5436 | Valid Acc: 72.38%
+Epoch [10/200] - Train Loss: 0.7728 | Valid Loss: 0.5467 | Valid Acc: 75.14%
+Epoch [11/200] - Train Loss: 0.7689 | Valid Loss: 0.5102 | Valid Acc: 76.80%
+Epoch [12/200] - Train Loss: 0.5838 | Valid Loss: 0.5523 | Valid Acc: 78.45%
+Epoch [13/200] - Train Loss: 0.4664 | Valid Loss: 0.5530 | Valid Acc: 79.56%
+Epoch [14/200] - Train Loss: 0.5718 | Valid Loss: 0.8415 | Valid Acc: 75.69%
+Epoch [15/200] - Train Loss: 0.5279 | Valid Loss: 0.7399 | Valid Acc: 81.22%
+Epoch [16/200] - Train Loss: 1.1055 | Valid Loss: 0.8566 | Valid Acc: 79.01%
+Epoch [17/200] - Train Loss: 0.6590 | Valid Loss: 0.8892 | Valid Acc: 79.56%
+Epoch [18/200] - Train Loss: 0.6501 | Valid Loss: 0.8515 | Valid Acc: 82.87%
+Epoch [19/200] - Train Loss: 0.4179 | Valid Loss: 0.8450 | Valid Acc: 86.19%
+Epoch [20/200] - Train Loss: 0.3516 | Valid Loss: 0.9196 | Valid Acc: 82.32%
+Epoch [21/200] - Train Loss: 0.2446 | Valid Loss: 0.9606 | Valid Acc: 85.64%
+Epoch [22/200] - Train Loss: 0.2252 | Valid Loss: 0.9502 | Valid Acc: 87.29%
+Epoch [23/200] - Train Loss: 0.1129 | Valid Loss: 0.9707 | Valid Acc: 85.64%
+Epoch [24/200] - Train Loss: 0.0835 | Valid Loss: 1.1331 | Valid Acc: 80.66%
+Epoch [25/200] - Train Loss: 0.0777 | Valid Loss: 1.2114 | Valid Acc: 80.11%
+Epoch [26/200] - Train Loss: 0.0613 | Valid Loss: 1.0620 | Valid Acc: 86.74%
+Early Stopping at Epoch 26
+Loaded best model with valid loss: 0.5102
+Total Training Time: 332.83 seconds
+Maximum GPU memory allocated: 3690.08 MB
+Inference Time: 2.64 seconds
+
+Classification Report:
+              precision    recall  f1-score     support
+0.0            0.867052  0.974026  0.917431  154.000000
+1.0            0.500000  0.148148  0.228571   27.000000
+accuracy       0.850829  0.850829  0.850829    0.850829
+macro avg      0.683526  0.561087  0.573001  181.000000
+weighted avg   0.812298  0.850829  0.814673  181.000000
+
+----------------------------------------------------------------------------
+
+SEED 400:
+
+Epoch [1/200] - Train Loss: 1.8253 | Valid Loss: 0.9016 | Valid Acc: 14.36%
+Epoch [2/200] - Train Loss: 1.6095 | Valid Loss: 0.8234 | Valid Acc: 14.36%
+Epoch [3/200] - Train Loss: 1.5474 | Valid Loss: 0.7171 | Valid Acc: 16.02%
+Epoch [4/200] - Train Loss: 1.4471 | Valid Loss: 0.7293 | Valid Acc: 17.68%
+Epoch [5/200] - Train Loss: 1.3823 | Valid Loss: 0.5899 | Valid Acc: 42.54%
+Epoch [6/200] - Train Loss: 1.2938 | Valid Loss: 0.5087 | Valid Acc: 61.33%
+Epoch [7/200] - Train Loss: 1.1799 | Valid Loss: 0.4554 | Valid Acc: 71.27%
+Epoch [8/200] - Train Loss: 1.0802 | Valid Loss: 0.4103 | Valid Acc: 79.01%
+Epoch [9/200] - Train Loss: 0.9727 | Valid Loss: 0.3997 | Valid Acc: 83.43%
+Epoch [10/200] - Train Loss: 0.8845 | Valid Loss: 0.3567 | Valid Acc: 85.64%
+Epoch [11/200] - Train Loss: 0.9035 | Valid Loss: 0.3743 | Valid Acc: 85.64%
+Epoch [12/200] - Train Loss: 0.7135 | Valid Loss: 0.3986 | Valid Acc: 84.53%
+Epoch [13/200] - Train Loss: 0.6993 | Valid Loss: 0.4120 | Valid Acc: 87.29%
+Epoch [14/200] - Train Loss: 0.7865 | Valid Loss: 0.4494 | Valid Acc: 86.74%
+Epoch [15/200] - Train Loss: 0.6431 | Valid Loss: 0.5283 | Valid Acc: 87.29%
+Epoch [16/200] - Train Loss: 0.5373 | Valid Loss: 0.6195 | Valid Acc: 86.74%
+Epoch [17/200] - Train Loss: 0.4212 | Valid Loss: 0.6806 | Valid Acc: 86.74%
+Epoch [18/200] - Train Loss: 0.2028 | Valid Loss: 0.7863 | Valid Acc: 86.19%
+Epoch [19/200] - Train Loss: 0.1339 | Valid Loss: 0.8658 | Valid Acc: 86.19%
+Epoch [20/200] - Train Loss: 0.4031 | Valid Loss: 0.9096 | Valid Acc: 86.19%
+Epoch [21/200] - Train Loss: 0.3835 | Valid Loss: 0.9321 | Valid Acc: 85.64%
+Epoch [22/200] - Train Loss: 0.2739 | Valid Loss: 1.2894 | Valid Acc: 74.03%
+Epoch [23/200] - Train Loss: 0.1793 | Valid Loss: 0.9311 | Valid Acc: 86.74%
+Epoch [24/200] - Train Loss: 0.0910 | Valid Loss: 0.9682 | Valid Acc: 85.64%
+Epoch [25/200] - Train Loss: 0.0141 | Valid Loss: 1.0074 | Valid Acc: 85.64%
+Early Stopping at Epoch 25
+Loaded best model with valid loss: 0.3567
+Total Training Time: 318.72 seconds
+Maximum GPU memory allocated: 3688.16 MB
+Inference Time: 2.55 seconds
+
+Classification Report:
+              precision    recall  f1-score     support
+0.0            0.904459  0.922078  0.913183  154.000000
+1.0            0.500000  0.444444  0.470588   27.000000
+accuracy       0.850829  0.850829  0.850829    0.850829
+macro avg      0.702229  0.683261  0.691886  181.000000
+weighted avg   0.844125  0.850829  0.847161  181.000000
+
+----------------------------------------------------------------------------
+
+SEED 500:
+
+Epoch [1/200] - Train Loss: 1.6113 | Valid Loss: 0.9547 | Valid Acc: 14.36%
+Epoch [2/200] - Train Loss: 1.6205 | Valid Loss: 0.7872 | Valid Acc: 14.36%
+Epoch [3/200] - Train Loss: 1.5968 | Valid Loss: 0.8003 | Valid Acc: 14.36%
+Epoch [4/200] - Train Loss: 1.4758 | Valid Loss: 0.7030 | Valid Acc: 14.36%
+Epoch [5/200] - Train Loss: 1.3870 | Valid Loss: 0.7339 | Valid Acc: 16.57%
+Epoch [6/200] - Train Loss: 1.2014 | Valid Loss: 0.5483 | Valid Acc: 53.59%
+Epoch [7/200] - Train Loss: 1.0281 | Valid Loss: 0.5497 | Valid Acc: 59.67%
+Epoch [8/200] - Train Loss: 0.8996 | Valid Loss: 0.5740 | Valid Acc: 64.64%
+Epoch [9/200] - Train Loss: 0.8515 | Valid Loss: 0.5028 | Valid Acc: 74.59%
+Epoch [10/200] - Train Loss: 0.7627 | Valid Loss: 0.5426 | Valid Acc: 75.14%
+Epoch [11/200] - Train Loss: 0.5204 | Valid Loss: 0.4701 | Valid Acc: 83.43%
+Epoch [12/200] - Train Loss: 0.5612 | Valid Loss: 0.6275 | Valid Acc: 80.66%
+Epoch [13/200] - Train Loss: 0.5614 | Valid Loss: 0.5959 | Valid Acc: 85.64%
+Epoch [14/200] - Train Loss: 0.7643 | Valid Loss: 0.7347 | Valid Acc: 85.08%
+Epoch [15/200] - Train Loss: 0.4917 | Valid Loss: 0.8667 | Valid Acc: 83.43%
+Epoch [16/200] - Train Loss: 0.5187 | Valid Loss: 1.0062 | Valid Acc: 83.43%
+Epoch [17/200] - Train Loss: 0.4172 | Valid Loss: 1.0290 | Valid Acc: 83.43%
+Epoch [18/200] - Train Loss: 0.3960 | Valid Loss: 1.0049 | Valid Acc: 84.53%
+Epoch [19/200] - Train Loss: 0.5080 | Valid Loss: 1.1885 | Valid Acc: 81.77%
+Epoch [20/200] - Train Loss: 0.3571 | Valid Loss: 1.0810 | Valid Acc: 85.08%
+Epoch [21/200] - Train Loss: 0.2720 | Valid Loss: 1.0673 | Valid Acc: 85.64%
+Epoch [22/200] - Train Loss: 0.2571 | Valid Loss: 1.1109 | Valid Acc: 86.74%
+Epoch [23/200] - Train Loss: 0.2549 | Valid Loss: 1.1337 | Valid Acc: 85.64%
+Epoch [24/200] - Train Loss: 0.2447 | Valid Loss: 1.1454 | Valid Acc: 85.08%
+Epoch [25/200] - Train Loss: 0.2287 | Valid Loss: 1.2697 | Valid Acc: 83.98%
+Epoch [26/200] - Train Loss: 0.1256 | Valid Loss: 1.2647 | Valid Acc: 84.53%
+Early Stopping at Epoch 26
+Loaded best model with valid loss: 0.4701
+Total Training Time: 332.30 seconds
+Maximum GPU memory allocated: 3690.50 MB
+Inference Time: 2.60 seconds
+
+Classification Report:
+              precision    recall  f1-score    support
+0.0            0.874214  0.902597  0.888179  154.00000
+1.0            0.318182  0.259259  0.285714   27.00000
+accuracy       0.806630  0.806630  0.806630    0.80663
+macro avg      0.596198  0.580928  0.586947  181.00000
+weighted avg   0.791270  0.806630  0.798308  181.00000
+
+----------------------------------------------------------------------------
+
+SEED 600:
+
+Epoch [1/200] - Train Loss: 1.6362 | Valid Loss: 0.6454 | Valid Acc: 14.36%
+Epoch [2/200] - Train Loss: 1.5875 | Valid Loss: 0.6653 | Valid Acc: 14.36%
+Epoch [3/200] - Train Loss: 1.5679 | Valid Loss: 0.6135 | Valid Acc: 24.86%
+Epoch [4/200] - Train Loss: 1.4376 | Valid Loss: 0.5669 | Valid Acc: 43.65%
+Epoch [5/200] - Train Loss: 1.4396 | Valid Loss: 0.5594 | Valid Acc: 48.62%
+Epoch [6/200] - Train Loss: 1.3640 | Valid Loss: 0.4522 | Valid Acc: 77.35%
+Epoch [7/200] - Train Loss: 1.2511 | Valid Loss: 0.4425 | Valid Acc: 79.56%
+Epoch [8/200] - Train Loss: 1.1936 | Valid Loss: 0.4160 | Valid Acc: 81.22%
+Epoch [9/200] - Train Loss: 1.1269 | Valid Loss: 0.4202 | Valid Acc: 82.32%
+Epoch [10/200] - Train Loss: 1.0332 | Valid Loss: 0.4433 | Valid Acc: 83.98%
+Epoch [11/200] - Train Loss: 1.0294 | Valid Loss: 0.4798 | Valid Acc: 84.53%
+Epoch [12/200] - Train Loss: 1.0438 | Valid Loss: 0.5010 | Valid Acc: 85.64%
+Epoch [13/200] - Train Loss: 0.9590 | Valid Loss: 0.6071 | Valid Acc: 85.64%
+Epoch [14/200] - Train Loss: 1.0733 | Valid Loss: 0.6962 | Valid Acc: 85.08%
+Epoch [15/200] - Train Loss: 0.8158 | Valid Loss: 0.7812 | Valid Acc: 86.19%
+Epoch [16/200] - Train Loss: 0.8278 | Valid Loss: 0.9057 | Valid Acc: 85.08%
+Epoch [17/200] - Train Loss: 0.9805 | Valid Loss: 0.9436 | Valid Acc: 86.19%
+Epoch [18/200] - Train Loss: 0.6254 | Valid Loss: 0.9928 | Valid Acc: 86.19%
+Epoch [19/200] - Train Loss: 0.5419 | Valid Loss: 1.0628 | Valid Acc: 86.19%
+Epoch [20/200] - Train Loss: 0.4492 | Valid Loss: 1.1324 | Valid Acc: 86.19%
+Epoch [21/200] - Train Loss: 0.3964 | Valid Loss: 1.1211 | Valid Acc: 85.64%
+Epoch [22/200] - Train Loss: 0.3187 | Valid Loss: 1.2184 | Valid Acc: 85.64%
+Epoch [23/200] - Train Loss: 0.2806 | Valid Loss: 1.1869 | Valid Acc: 85.64%
+Early Stopping at Epoch 23
+Loaded best model with valid loss: 0.4160
+Total Training Time: 299.57 seconds
+Maximum GPU memory allocated: 3691.16 MB
+Inference Time: 2.65 seconds
+
+Classification Report:
+              precision    recall  f1-score     support
+0.0            0.873563  0.987013  0.926829  154.000000
+1.0            0.714286  0.185185  0.294118   27.000000
+accuracy       0.867403  0.867403  0.867403    0.867403
+macro avg      0.793924  0.586099  0.610473  181.000000
+weighted avg   0.849804  0.867403  0.832447  181.000000
+
+----------------------------------------------------------------------------
+
+SEED 700:
+
+Epoch [1/200] - Train Loss: 1.7003 | Valid Loss: 1.1121 | Valid Acc: 14.36%
+Epoch [2/200] - Train Loss: 1.6081 | Valid Loss: 0.9308 | Valid Acc: 14.36%
+Epoch [3/200] - Train Loss: 1.6076 | Valid Loss: 0.9706 | Valid Acc: 14.36%
+Epoch [4/200] - Train Loss: 1.5474 | Valid Loss: 0.9794 | Valid Acc: 14.36%
+Epoch [5/200] - Train Loss: 1.5971 | Valid Loss: 0.8226 | Valid Acc: 15.47%
+Epoch [6/200] - Train Loss: 1.4710 | Valid Loss: 0.8230 | Valid Acc: 22.65%
+Epoch [7/200] - Train Loss: 1.3390 | Valid Loss: 0.6730 | Valid Acc: 48.07%
+Epoch [8/200] - Train Loss: 1.2970 | Valid Loss: 0.6332 | Valid Acc: 52.49%
+Epoch [9/200] - Train Loss: 1.1436 | Valid Loss: 0.6018 | Valid Acc: 60.77%
+Epoch [10/200] - Train Loss: 1.0777 | Valid Loss: 0.4456 | Valid Acc: 70.72%
+Epoch [11/200] - Train Loss: 1.0997 | Valid Loss: 0.5506 | Valid Acc: 68.51%
+Epoch [12/200] - Train Loss: 1.1635 | Valid Loss: 0.9831 | Valid Acc: 55.25%
+Epoch [13/200] - Train Loss: 1.1417 | Valid Loss: 1.0278 | Valid Acc: 54.70%
+Epoch [14/200] - Train Loss: 1.1412 | Valid Loss: 0.5440 | Valid Acc: 71.27%
+Epoch [15/200] - Train Loss: 1.1200 | Valid Loss: 0.7760 | Valid Acc: 70.17%
+Epoch [16/200] - Train Loss: 1.2441 | Valid Loss: 0.9578 | Valid Acc: 68.51%
+Epoch [17/200] - Train Loss: 1.0667 | Valid Loss: 0.8089 | Valid Acc: 71.82%
+Epoch [18/200] - Train Loss: 1.1264 | Valid Loss: 0.7505 | Valid Acc: 77.35%
+Epoch [19/200] - Train Loss: 1.2394 | Valid Loss: 0.7276 | Valid Acc: 80.11%
+Epoch [20/200] - Train Loss: 1.1778 | Valid Loss: 0.7863 | Valid Acc: 80.66%
+Epoch [21/200] - Train Loss: 0.9479 | Valid Loss: 0.7827 | Valid Acc: 82.87%
+Epoch [22/200] - Train Loss: 0.9029 | Valid Loss: 0.7540 | Valid Acc: 82.87%
+Epoch [23/200] - Train Loss: 0.7494 | Valid Loss: 0.8212 | Valid Acc: 80.66%
+Epoch [24/200] - Train Loss: 0.6788 | Valid Loss: 1.2856 | Valid Acc: 72.38%
+Epoch [25/200] - Train Loss: 0.7325 | Valid Loss: 1.1400 | Valid Acc: 74.03%
+Early Stopping at Epoch 25
+Loaded best model with valid loss: 0.4456
+Total Training Time: 321.81 seconds
+Maximum GPU memory allocated: 3693.15 MB
+Inference Time: 2.66 seconds
+
+Classification Report:
+              precision    recall  f1-score    support
+0.0            0.952756  0.785714  0.861210  154.00000
+1.0            0.388889  0.777778  0.518519   27.00000
+accuracy       0.784530  0.784530  0.784530    0.78453
+macro avg      0.670822  0.781746  0.689864  181.00000
+weighted avg   0.868643  0.784530  0.810090  181.00000
+
+----------------------------------------------------------------------------
+
+SEED 800:
+
+Epoch [1/200] - Train Loss: 1.6406 | Valid Loss: 0.7166 | Valid Acc: 14.36%
+Epoch [2/200] - Train Loss: 1.5358 | Valid Loss: 0.6415 | Valid Acc: 40.33%
+Epoch [3/200] - Train Loss: 1.3423 | Valid Loss: 0.5104 | Valid Acc: 56.91%
+Epoch [4/200] - Train Loss: 1.2303 | Valid Loss: 0.4718 | Valid Acc: 68.51%
+Epoch [5/200] - Train Loss: 1.0633 | Valid Loss: 0.4344 | Valid Acc: 72.38%
+Epoch [6/200] - Train Loss: 0.8822 | Valid Loss: 0.4309 | Valid Acc: 76.24%
+Epoch [7/200] - Train Loss: 0.7912 | Valid Loss: 0.4204 | Valid Acc: 82.87%
+Epoch [8/200] - Train Loss: 0.6703 | Valid Loss: 0.4327 | Valid Acc: 83.98%
+Epoch [9/200] - Train Loss: 0.6222 | Valid Loss: 0.4650 | Valid Acc: 83.43%
+Epoch [10/200] - Train Loss: 0.5672 | Valid Loss: 0.5356 | Valid Acc: 82.87%
+Epoch [11/200] - Train Loss: 0.6005 | Valid Loss: 0.6085 | Valid Acc: 82.32%
+Epoch [12/200] - Train Loss: 0.4390 | Valid Loss: 0.7300 | Valid Acc: 83.98%
+Epoch [13/200] - Train Loss: 0.3422 | Valid Loss: 0.8296 | Valid Acc: 83.98%
+Epoch [14/200] - Train Loss: 0.3811 | Valid Loss: 0.9298 | Valid Acc: 83.98%
+Epoch [15/200] - Train Loss: 0.4265 | Valid Loss: 1.0244 | Valid Acc: 83.43%
+Epoch [16/200] - Train Loss: 0.9040 | Valid Loss: 1.1019 | Valid Acc: 82.87%
+Epoch [17/200] - Train Loss: 0.2535 | Valid Loss: 1.1769 | Valid Acc: 82.87%
+Epoch [18/200] - Train Loss: 0.1809 | Valid Loss: 1.2239 | Valid Acc: 82.32%
+Epoch [19/200] - Train Loss: 0.3482 | Valid Loss: 1.3405 | Valid Acc: 83.98%
+Epoch [20/200] - Train Loss: 0.1221 | Valid Loss: 1.3142 | Valid Acc: 82.87%
+Epoch [21/200] - Train Loss: 0.1046 | Valid Loss: 1.3877 | Valid Acc: 82.87%
+Epoch [22/200] - Train Loss: 0.1014 | Valid Loss: 1.4072 | Valid Acc: 82.87%
+Early Stopping at Epoch 22
+Loaded best model with valid loss: 0.4204
+Total Training Time: 282.66 seconds
+Maximum GPU memory allocated: 3691.88 MB
+Inference Time: 2.65 seconds
+
+Classification Report:
+              precision    recall  f1-score     support
+0.0            0.880952  0.961039  0.919255  154.000000
+1.0            0.538462  0.259259  0.350000   27.000000
+accuracy       0.856354  0.856354  0.856354    0.856354
+macro avg      0.709707  0.610149  0.634627  181.000000
+weighted avg   0.829863  0.856354  0.834338  181.000000
+
+----------------------------------------------------------------------------
+
+SEED 900:
+
+Epoch [1/200] - Train Loss: 1.6984 | Valid Loss: 0.8599 | Valid Acc: 14.36%
+Epoch [2/200] - Train Loss: 1.5615 | Valid Loss: 0.7210 | Valid Acc: 14.36%
+Epoch [3/200] - Train Loss: 1.4672 | Valid Loss: 0.6736 | Valid Acc: 14.36%
+Epoch [4/200] - Train Loss: 1.2962 | Valid Loss: 0.6802 | Valid Acc: 27.62%
+Epoch [5/200] - Train Loss: 1.1603 | Valid Loss: 0.6767 | Valid Acc: 42.54%
+Epoch [6/200] - Train Loss: 0.9399 | Valid Loss: 0.4896 | Valid Acc: 66.85%
+Epoch [7/200] - Train Loss: 0.8316 | Valid Loss: 0.4710 | Valid Acc: 72.38%
+Epoch [8/200] - Train Loss: 0.7283 | Valid Loss: 0.5258 | Valid Acc: 71.27%
+Epoch [9/200] - Train Loss: 0.5916 | Valid Loss: 0.4698 | Valid Acc: 77.35%
+Epoch [10/200] - Train Loss: 0.5334 | Valid Loss: 0.5167 | Valid Acc: 74.03%
+Epoch [11/200] - Train Loss: 0.5759 | Valid Loss: 0.4043 | Valid Acc: 88.40%
+Epoch [12/200] - Train Loss: 0.6978 | Valid Loss: 0.4892 | Valid Acc: 87.29%
+Epoch [13/200] - Train Loss: 0.7203 | Valid Loss: 0.5068 | Valid Acc: 83.43%
+Epoch [14/200] - Train Loss: 0.6613 | Valid Loss: 0.5826 | Valid Acc: 87.29%
+Epoch [15/200] - Train Loss: 0.7273 | Valid Loss: 0.5471 | Valid Acc: 87.29%
+Epoch [16/200] - Train Loss: 0.6338 | Valid Loss: 0.6830 | Valid Acc: 87.29%
+Epoch [17/200] - Train Loss: 0.4031 | Valid Loss: 0.8486 | Valid Acc: 81.22%
+Epoch [18/200] - Train Loss: 0.4656 | Valid Loss: 0.7508 | Valid Acc: 83.98%
+Epoch [19/200] - Train Loss: 0.3339 | Valid Loss: 0.8043 | Valid Acc: 86.19%
+Epoch [20/200] - Train Loss: 0.3699 | Valid Loss: 0.8390 | Valid Acc: 86.19%
+Epoch [21/200] - Train Loss: 0.3102 | Valid Loss: 0.9207 | Valid Acc: 86.74%
+Epoch [22/200] - Train Loss: 0.3402 | Valid Loss: 0.9603 | Valid Acc: 87.85%
+Epoch [23/200] - Train Loss: 0.2408 | Valid Loss: 0.9815 | Valid Acc: 87.85%
+Epoch [24/200] - Train Loss: 0.2424 | Valid Loss: 0.9755 | Valid Acc: 87.85%
+Epoch [25/200] - Train Loss: 0.1848 | Valid Loss: 1.1091 | Valid Acc: 87.29%
+Epoch [26/200] - Train Loss: 0.3139 | Valid Loss: 1.0329 | Valid Acc: 86.19%
+Early Stopping at Epoch 26
+Loaded best model with valid loss: 0.4043
+Total Training Time: 335.90 seconds
+Maximum GPU memory allocated: 3694.63 MB
+Inference Time: 2.56 seconds
+
+Classification Report:
+              precision    recall  f1-score     support
+0.0            0.879518  0.948052  0.912500  154.000000
+1.0            0.466667  0.259259  0.333333   27.000000
+accuracy       0.845304  0.845304  0.845304    0.845304
+macro avg      0.673092  0.603656  0.622917  181.000000
+weighted avg   0.817933  0.845304  0.826105  181.000000
+
+----------------------------------------------------------------------------
+
+SEED 1000:
+
+Epoch [1/200] - Train Loss: 1.6250 | Valid Loss: 1.0589 | Valid Acc: 14.36%
+Epoch [2/200] - Train Loss: 1.4997 | Valid Loss: 0.8118 | Valid Acc: 14.36%
+Epoch [3/200] - Train Loss: 1.4403 | Valid Loss: 0.7568 | Valid Acc: 27.07%
+Epoch [4/200] - Train Loss: 1.3653 | Valid Loss: 0.7023 | Valid Acc: 42.54%
+Epoch [5/200] - Train Loss: 1.2779 | Valid Loss: 0.5776 | Valid Acc: 55.80%
+Epoch [6/200] - Train Loss: 1.1245 | Valid Loss: 0.5686 | Valid Acc: 59.12%
+Epoch [7/200] - Train Loss: 1.0167 | Valid Loss: 0.6096 | Valid Acc: 59.12%
+Epoch [8/200] - Train Loss: 0.8964 | Valid Loss: 0.5388 | Valid Acc: 70.17%
+Epoch [9/200] - Train Loss: 0.9291 | Valid Loss: 0.4687 | Valid Acc: 76.24%
+Epoch [10/200] - Train Loss: 0.6753 | Valid Loss: 0.5335 | Valid Acc: 72.93%
+Epoch [11/200] - Train Loss: 0.5556 | Valid Loss: 0.4853 | Valid Acc: 77.90%
+Epoch [12/200] - Train Loss: 0.4223 | Valid Loss: 0.5065 | Valid Acc: 80.11%
+Epoch [13/200] - Train Loss: 0.3122 | Valid Loss: 0.5353 | Valid Acc: 82.32%
+Epoch [14/200] - Train Loss: 0.2663 | Valid Loss: 0.6570 | Valid Acc: 81.22%
+Epoch [15/200] - Train Loss: 0.1805 | Valid Loss: 0.6907 | Valid Acc: 85.08%
+Epoch [16/200] - Train Loss: 0.5403 | Valid Loss: 0.9226 | Valid Acc: 80.66%
+Epoch [17/200] - Train Loss: 0.1441 | Valid Loss: 0.7886 | Valid Acc: 83.43%
+Epoch [18/200] - Train Loss: 0.0141 | Valid Loss: 0.8365 | Valid Acc: 83.98%
+Epoch [19/200] - Train Loss: 0.0208 | Valid Loss: 0.9005 | Valid Acc: 83.43%
+Epoch [20/200] - Train Loss: 0.0050 | Valid Loss: 0.9503 | Valid Acc: 83.43%
+Epoch [21/200] - Train Loss: 0.0010 | Valid Loss: 0.9676 | Valid Acc: 83.98%
+Epoch [22/200] - Train Loss: 0.0007 | Valid Loss: 0.9691 | Valid Acc: 82.87%
+Epoch [23/200] - Train Loss: 0.0006 | Valid Loss: 1.1337 | Valid Acc: 81.77%
+Epoch [24/200] - Train Loss: 0.0003 | Valid Loss: 1.1244 | Valid Acc: 82.87%
+Early Stopping at Epoch 24
+Loaded best model with valid loss: 0.4687
+Total Training Time: 310.55 seconds
+Maximum GPU memory allocated: 3692.05 MB
+Inference Time: 2.60 seconds
+
+Classification Report:
+              precision    recall  f1-score     support
+0.0            0.897260  0.850649  0.873333  154.000000
+1.0            0.342857  0.444444  0.387097   27.000000
+accuracy       0.790055  0.790055  0.790055    0.790055
+macro avg      0.620059  0.647547  0.630215  181.000000
+weighted avg   0.814559  0.790055  0.800801  181.000000
+=== All Trainings Completed ===
+
+Process finished with exit code 0
+
+----------------------------------------------------------------------------
+
+CALCULATED MEAN
+
+Target 0
+    1. Precision = 0.9 + 0.87 + 0.87 + 0.9 + 0.87 + 0.87 + 0.95 + 0.88 + 0.88 + 0.9 = 0.89
+    2. Recall = 0.96 + 1 + 0.97 + 0.92 + 0.9 + 0.99 + 0.79 + 0.96 + 0.95 + 0.85 = 0.93
+    3. F1-Score = 0.93 + 0.93 + 0.92 + 0.91 + 0.89 + 0.93 + 0.86 + 0.92 + 0.91 +0.87 = 0.91
+
+Target 1
+    1. Precision = 0.65 + 1 + 0.5 + 0.5 + 0.32 + 0.71 + 0.39 + 0.54 + 0.47 + 0.34 = 0.54
+    2. Recall = 0.41 + 0.11 + 0.15 + 0.44 + 0.26 + 0.19 + 0.78 + 0.26 + 0.26 + 0.44 = 0.33
+    3. F1-Score = 0.5 + 0.2 + 0.23 + 0.47 + 0.29 + 0.29 + 0.52 + 0.35 + 0.33 + 0.39 = 0.36
