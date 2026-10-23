@@ -52,20 +52,6 @@ A central component of this research is the comparison of five observation windo
 
 The analysis considers injury-class recall, precision, F1-score, and ROC-AUC, alongside other classification metrics.
 
-## Results at a Glance
-
-The following table summarizes the mean injury-class results reported across the tested experimental runs.
-
-| Observation window | Mean recall | Peak recall | Mean precision | Mean F1-score | Mean ROC-AUC |
-|---|---:|---:|---:|---:|---:|
-| 20 days | 0.36 | 0.63 | 0.46 | 0.39 | 0.78 |
-| 40 days | 0.31 | 0.63 | 0.48 | 0.36 | 0.76 |
-| 60 days | 0.33 | 0.78 | 0.54 | 0.38 | 0.77 |
-| 80 days | **0.41** | 0.63 | 0.51 | **0.44** | **0.78** |
-| 100 days | 0.34 | 0.70 | 0.45 | 0.41 | 0.76 |
-
-*Source: Experimental results reported in the thesis. Values are rounded to two decimal places.*
-
 ### Key Findings
 
 - **The 80-day window achieved the highest mean injury-class recall (0.41) and mean F1-score (0.44)** among the tested windows.
