@@ -61,7 +61,7 @@ The analysis considers injury-class recall, precision, F1-score, and ROC-AUC, al
 
 These findings describe the experiments conducted in this project; they do not establish a clinically validated injury-warning system.
 
-## Introducing AAA data.
+## Introducing AAA Data
 
 An important aspect of this project is the inclusion of Triple-A (AAA) data alongside Major League Baseball (MLB). The objective is not simply to maximize predictive performance on MLB data, but to investigate injury-risk patterns across different levels of professional baseball.
 
